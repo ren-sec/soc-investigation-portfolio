@@ -122,14 +122,6 @@ This event is classified as Malicious based on the correlation between high-conf
 3. Persistence Artifact Hunting: Investigated the PowerShell script arguments to confirm the creation of a __EventFilter, CommandLineEventConsumer, and the corresponding __FilterToConsumerBinding within the ROOT\subscription WMI namespace. 
 4. Evidence Synthesis: Compiled key process identifiers, command-line arguments, and malware detection events to confirm the threat actor's intent for fileless, resilient persistence and elevated system access. 
 
-### Queries Used
-
-```kql
-// Paste queries here
-```
-No manual KQL queries were required for this investigation; Analysis was performed via EDR process tree and alert telemetry. 
----
-
 ## 4. Categorisation
 
 - [x] ✅ **True Positive** — malicious activity confirmed
@@ -160,10 +152,12 @@ Given the confirmation of active SandCat malware and multi-layered persistence, 
 - Threat Intel Update: Use the artifacts recovered (the C2 IP address and the WMI script structure) to update internal blocklists and enhance detection rules to prevent further re-infection. 
 
 **Alert Tuning:**
-- [x] Tune recommended —
-- [ ] No tuning required
+- [ ] Tune recommended —
+- [x] No tuning required
 
 ---
+
+True positive. The rule correctly detected WMI event subscription persistence, so no tuning is needed and this alert should keep triggering.
 
 ## 6. Lessons Learned
 

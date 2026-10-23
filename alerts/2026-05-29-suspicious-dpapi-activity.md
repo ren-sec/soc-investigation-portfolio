@@ -78,14 +78,6 @@ The automated behavioural analysis identified an unauthorised process (wusvc.exe
 2. I examined the Evidence section and the Process Tree, which revealed the full attack chain (nssm.exe -> wusvc.exe -> powershell.exe). This confirmed the persistence mechanism and the specific process responsible for the malicious activity.
 3. I verified the execution status via the alert telemetry, which confirmed that the command successfully executed on the host. I then cross-referenced the activity with the MITRE ATT&CK category of Credential Access and the Mimikatz repository, confirming adversarial intent and the successful deployment of a credential theft tool.
 
-### Queries Used
-
-```kql
-// Paste queries here
-```
-No custom KQL queries were required, as the built-in alert evidence provided sufficient data for verification.
----
-
 ## 4. Categorisation
 
 - [x] ✅ **True Positive** — malicious activity confirmed
